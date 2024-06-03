@@ -33,6 +33,15 @@
         Object.assign((formData), product)
     })
 
+    const submitHandler = async data => {
+        try {
+            await products.updateProduct(docRef, {...data, url})
+            router.push({name: 'products'})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 </script>
 
 <template>

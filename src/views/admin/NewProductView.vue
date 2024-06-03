@@ -5,7 +5,7 @@
     import { reactive } from 'vue'
     import { useRouter } from 'vue-router'
 
-    const { onFileChnage, url, isImageUploaded } = useImage()
+    const { onFileChange, url, isImageUploaded } = useImage()
     const products = useProductsStore()
     const router = useRouter()
     const formData = reactive({
@@ -60,7 +60,7 @@
                         validation="required"
                         :validation-messages="{required: 'La imagen es obligatoria'}"
                         accept=".jpg"
-                        @change="onFileChnage"
+                        @change="onFileChange"
                         v-model.trim="formData.image"
                     />
                     <div v-if="isImageUploaded">

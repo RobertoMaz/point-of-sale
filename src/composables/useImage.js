@@ -7,7 +7,7 @@ export default function useImage() {
     const url = ref(null)
     const storage = useFirebaseStorage()
 
-    const onFileChnage = e => {
+    const onFileChange = e => {
         const id = crypto.randomUUID()
         const file = e.target.files[0]
         const sRef = storageRef(storage, `/products/${id}.jpg`)
@@ -33,7 +33,7 @@ export default function useImage() {
     return {
         url,
         isImageUploaded,
-        onFileChnage
+        onFileChange
 
     }
 }
