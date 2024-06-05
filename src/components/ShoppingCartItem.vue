@@ -1,6 +1,7 @@
 <script setup>
     import { formatCurrency } from '@/helpers'
     import { useCartStore } from '@/stores/cart'
+    import DeleteButton from './DeleteButton.vue'
 
     const cart = useCartStore()
 
@@ -31,6 +32,14 @@
                     :value="n"
                 >{{ n }}</option>
             </select>
+        </div>
+        <div>
+            <button 
+                type="button"
+                @click="cart.removeItem(item.id)"
+            >
+                <DeleteButton />
+            </button>
         </div>
     </li>
 </template>
