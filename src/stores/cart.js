@@ -1,11 +1,12 @@
 import { defineStore } from "pinia"
-import { ref, computed, watch } from "vue"
+import { ref, computed, watchEffect } from "vue"
 
 export const useCartStore = defineStore('cart', () => {
 
     const items = ref([])
     const subtotal = ref(0)
     const taxes = ref(0)
+    const total = ref(0)
 
 
     const MAX_PRODUCTS = 5
@@ -14,10 +15,18 @@ export const useCartStore = defineStore('cart', () => {
 
     
     function addItem(item){
-        items.value.push({...item, quantity: 1, id: item.id})
-        subtotal.value = item.price + subtotal.value
-        taxes.value = subtotal.value * TAX_RATE / 100
-
+        const index = isItemInCart(item.id)
+        
+        if(index >= 0){
+            if(isProductAvailable(item, index)) {
+                items.value[index].quantity++
+            } else {
+                alert('Has alcanzado el limite')
+            }
+            
+        } else {
+            items.value.push({...item, quantity: 1, id: item.id})
+        }
     }
     
 
@@ -27,13 +36,20 @@ export const useCartStore = defineStore('cart', () => {
 
     const isEmpty = computed(() => items.value.length === 0)
 
+    const isProductAvailable = (item, index) => {
+        return items.value[index].quantity < item.availability && items.value[index].quantity < MAX_PRODUCTS
+    }
+
+    const isItemInCart = (id) => items.value.findIndex( item => item.id === id)
+
     const checkProductAvailability = computed(() => {
         return (product) => product.availability < MAX_PRODUCTS ? product.availability : MAX_PRODUCTS 
     })
 
-    watch(items, () => {
+    watchEffect(() => {
         subtotal.value = items.value.reduce((total, item) => total + (item.quantity * item.price), 0)
         taxes.value = subtotal.value * TAX_RATE / 100
+        total.value = subtotal.value + taxes.value
     })
 
 
@@ -45,7 +61,8 @@ export const useCartStore = defineStore('cart', () => {
         checkProductAvailability,
         updateQuantity,
         subtotal,
-        taxes
+        taxes,
+        total
 
     }
 })

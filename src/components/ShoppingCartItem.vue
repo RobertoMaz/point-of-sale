@@ -24,6 +24,7 @@
             <select
                 class="w-20 text-center p-2 rounded-lg bg-white"
                 @change="cart.updateQuantity(item.id, +$event.target.value)"
+                :value="item.quantity"
             >
                 <option 
                     v-for="n in cart.checkProductAvailability(item)"
