@@ -14,7 +14,9 @@
     <p 
         v-if="cart.isEmpty"
         class="text-4xl text-center text-gray-900"    
-    >El carrito esta vacio</p>
+    >
+        El carrito esta vacio
+    </p>
     <div v-else>
         <p class="text-4xl font-bold text-gray-900">Resumen de Venta</p>
         <ul

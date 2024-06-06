@@ -7,13 +7,11 @@
     import { useProductsStore } from '@/stores/products';
     import useImage from '@/composables/useImage'
 
-
     const route = useRoute()
     const router = useRouter()
     const db = useFirestore()
     const docRef = doc(db, 'products', route.params.id)
     const product = useDocument(docRef)
-
 
     const { onFileChange,  url, isImageUploaded } = useImage()
     const products = useProductsStore()
@@ -41,7 +39,6 @@
             console.log(error)
         }
     }
-
 </script>
 
 <template>
@@ -52,10 +49,8 @@
             Volver
         </Link>
             <h1 class="text-4xl my-10 font-extrabold">Editar Producto</h1>
-
             <div class="flex justify-center bg-white shadow">
-            <div class="mx-auto mt-10 p-10 w-full  2xl:w-2/4">
-              
+            <div class="mx-auto mt-10 p-10 w-full  2xl:w-2/4"> 
                 <FormKit
                     type="form"
                     :value="formData"
@@ -73,7 +68,6 @@
                         v-model.trim="formData.name"
                         :validation-messages="{ required: 'El Nombre del Producto es Obligatorio' }"
                     />
-
                     <FormKit 
                         type="select"
                         label="Categoría*"
@@ -83,7 +77,6 @@
                         :validation-messages="{ required: 'La Categoría es Obligatoria' }"
                         :options="products.categoryOptions"
                     />
-
                     <FormKit
                         type="number"
                         label="Precio"
@@ -93,7 +86,6 @@
                         min="1"
                         v-model.number="formData.price"
                     />
-
                     <FormKit
                         type="number"
                         label="Disponibles"
@@ -103,7 +95,6 @@
                         step="1"
                         min="0"
                     />
-
                     <div v-if="isImageUploaded">
                         <p class="font-black">Imagen Nueva:</p>
                         <img    
@@ -112,7 +103,6 @@
                           class="w-52"
                         />  
                     </div>
-
                     <div v-else>
                         <p class="font-black">Imagen Actual:</p>
                         <img  
@@ -121,8 +111,6 @@
                           class="w-52"
                         />  
                     </div>
-                    
-
                     <FormKit
                         type="file"
                         label="Cambiar Imagen"
@@ -131,12 +119,9 @@
                         accept=".jpg"
                         @change="onFileChange"
                     />
-
-
                     <FormKit
                         type="submit"
                     >Guardar Cambios</FormKit>
-
                 </FormKit>
             </div>
         </div>

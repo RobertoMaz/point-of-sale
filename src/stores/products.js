@@ -19,8 +19,8 @@ export const useProductsStore = defineStore('products', () => {
     const q = query(
         collection(db, 'products')    
     )
-    const productsCollection = useCollection(q)
 
+    const productsCollection = useCollection(q)
 
     async function createProduct(product){
         await addDoc(collection(db, 'products'), product)
@@ -49,11 +49,9 @@ export const useProductsStore = defineStore('products', () => {
                 ...values,
                 image: url.value
             })            
-            
         } else {
             await updateDoc(docRef, values)            
         }
-
     }
 
     const categoryOptions = computed(() => {
@@ -82,6 +80,5 @@ export const useProductsStore = defineStore('products', () => {
         categoryOptions,
         noResults,
         filteredProducts
-
     }
 })

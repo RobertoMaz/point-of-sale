@@ -23,7 +23,6 @@ export default function useImage() {
                     })
             }
         )
-
     }
 
     const isImageUploaded = computed(() => {
@@ -34,6 +33,5 @@ export default function useImage() {
         url,
         isImageUploaded,
         onFileChange
-
     }
 }

@@ -10,7 +10,6 @@
     })
 
     const cart = useCartStore()
-
 </script>
 
 <template>

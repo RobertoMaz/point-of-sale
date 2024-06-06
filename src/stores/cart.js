@@ -15,12 +15,9 @@ export const useCartStore = defineStore('cart', () => {
     const coupon = useCouponStore()
     const db = useFirestore()
 
-
     const MAX_PRODUCTS = 5
     const TAX_RATE = 21
 
-
-    
     function addItem(item){
         const index = isItemInCart(item.id)
         
@@ -30,7 +27,6 @@ export const useCartStore = defineStore('cart', () => {
             } else {
                 alert('Has alcanzado el limite')
             }
-            
         } else {
             items.value.push({...item, quantity: 1, id: item.id})
         }
@@ -40,7 +36,6 @@ export const useCartStore = defineStore('cart', () => {
         items.value = items.value.filter(item => item.id !== id)
     }
     
-
     function updateQuantity(id, quantity){
         items.value = items.value.map(item => item.id === id ? {...item, quantity}: item)
     }
@@ -70,7 +65,6 @@ export const useCartStore = defineStore('cart', () => {
                 total: total.value,
                 date: getCurrentDate()
             })
-
 
             // Reduce the available quantity
             items.value.forEach( async (item) => {
@@ -104,8 +98,6 @@ export const useCartStore = defineStore('cart', () => {
         coupon.$reset() 
     }
 
-
-
     return {
         isEmpty,
         items,
@@ -117,6 +109,5 @@ export const useCartStore = defineStore('cart', () => {
         addItem,
         updateQuantity,
         removeItem
-
     }
 })

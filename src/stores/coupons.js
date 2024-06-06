@@ -21,9 +21,12 @@ export const useCouponStore = defineStore('coupon', () => {
         discount.value = (cart.total * discountPercentage.value / 100).toFixed(2)
     })
 
+    watch(() => cart.total, () => {
+        discount.value = (cart.total * discountPercentage.value / 100).toFixed(2)
+    })
+
     function applyCoupon() {
         if(VALID_COUPONS.some(coupon => coupon.name === couponInput.value)){
-
             discountPercentage.value = VALID_COUPONS.find(coupon => coupon.name === couponInput.value).discount
         } else {
             couponValidationMessage.value =  'El cupón no existe'
@@ -50,6 +53,5 @@ export const useCouponStore = defineStore('coupon', () => {
         isValidCoupon,
         applyCoupon,
         $reset
-
     }
 })

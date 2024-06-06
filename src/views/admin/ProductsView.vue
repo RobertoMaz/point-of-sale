@@ -4,7 +4,6 @@
    import Product from '@/components/Product.vue'
 
    const products = useProductsStore()
-
 </script>
 <template>
     <div>

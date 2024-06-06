@@ -24,15 +24,19 @@
                         class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         :checked="products.selectCategory === category.id"
                         @change="products.selectCategory = +$event.target.value"
+                        :id="category.id"
                     >
-                    <label class="text-gray-100">{{ category.name }}</label>
+                    <label 
+                        class="text-gray-100"
+                        :for="category.id"    
+                    >
+                        {{ category.name }}</label>
                 </div>
             </div>
         </div>
         <nav class="pt-1">
             <Link
                 to="sales"
-                
             >
                 Administrar
             </Link>   

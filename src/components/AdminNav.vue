@@ -24,7 +24,6 @@
             </RouterLink>
             <Link
                 to="shop"
-                
             >
                 Ir a Tienda
             </Link>   

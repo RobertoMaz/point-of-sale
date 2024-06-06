@@ -7,21 +7,20 @@
             type: Object
         }
     })
-
 </script>
 
 <template>
-    <div class="border-t border-gray-200 space-y-6 py-6">
-        <h2 class="text-2xl font-black">Detalles Venta:</h2>
+    <div class="border-t border-gray-300 space-y-6 py-6">
+        <h2 class="text-2xl font-black text-center">Detalle Venta:</h2>
         <p class="text-xl font-black text-gray-500">Productos vendidos</p>
         <ul
             role="list"
-            class="mt-6 divide-y divide-gray-300 border-t border-gray-300 text-sm font-medium text-gray-500"
+            class="mt-6 text-sm font-medium text-gray-500 grid grid-cols-1 md:grid-cols-2"
         >
             <li
                 v-for="item in sale.items"
                 class="flex space-x-6 py-6"
-            >
+            >            
                 <img  
                     :src="item.image"
                     :alt="`imagen de ${item.name}`"
@@ -43,8 +42,12 @@
                 <template #label>Impuestos:</template>
                 {{ formatCurrency(sale.taxes) }}
             </Amount>
+            <Amount v-if="sale.discount > 0" class="bg-green-200 p-2">
+                <template #label>Descuento:</template>
+                -{{ formatCurrency(sale.discount) }}
+            </Amount>
             <Amount>
-                <template #label>Total a pagar:</template>
+                <template #label>Total Pagado:</template>
                 {{ formatCurrency(sale.total) }}
             </Amount>
         </dl>

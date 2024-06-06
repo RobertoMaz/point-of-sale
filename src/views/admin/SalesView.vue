@@ -3,6 +3,7 @@
     import { ref } from 'vue'
     import { useSalesStore } from '@/stores/sales'
     import SaleDetails from '@/components/SaleDetails.vue'
+    import { formatCurrency } from '@/helpers'
 
     const sales = useSalesStore()
     const formatter = ref({
@@ -33,12 +34,18 @@
                 v-else
                 class="text-center text-lg"
             >No hay fecha seleccionada</p>
-            <div class="space-y-5">
+            <div v-if="sales.salesCollection.length > 0" class="space-y-5">
                 <SaleDetails 
                     v-for="sale in sales.salesCollection"
                     :key="sale.id"
                     :sale="sale"
                 />
+                <p class="text-right text-2xl">
+                    Total del dia: <span class="font-black">{{ formatCurrency(sales.totalSalesOfDay) }}</span>
+                </p>
+            </div>
+            <div v-else-if="sales.noSales">
+                <p class="text-center text-lg">No hubo ventas</p>
             </div>
         </div>
     </div>
