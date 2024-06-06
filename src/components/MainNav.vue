@@ -31,7 +31,7 @@
         </div>
         <nav class="pt-1">
             <Link
-                to="admin"
+                to="sales"
                 
             >
                 Administrar

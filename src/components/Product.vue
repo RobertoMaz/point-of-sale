@@ -3,18 +3,24 @@
     import EditButton from '@/components/EditButton.vue'
     import DeleteButton from '@/components/DeleteButton.vue'
     import { useProductsStore } from '@/stores/products'
+    import { computed } from 'vue'
 
     const products = useProductsStore()
 
-    defineProps({
+    const props = defineProps({
         product: {
             type: Object
         }
     })
+
+    const isProductNotAvailable = computed(() => props.product.availability === 0)
 </script>
 
 <template>
-    <li class="flex items-center space-x-6 border border-gray-200 p-6 bg-white shadow">
+    <li 
+        :class="{'opacity-30': isProductNotAvailable}"
+        class="flex items-center space-x-6 border border-gray-200 p-6 bg-white shadow"
+    >
         <img
             :src="product.image"
             :alt="`imagen ${product.name}`"

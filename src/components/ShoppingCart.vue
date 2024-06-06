@@ -38,7 +38,7 @@
             </Amount>
             <Amount v-if="coupon.isValidCoupon">
                 <template #label>Descuento:</template>
-                {{ formatCurrency(coupon.discount) }}
+                -{{ formatCurrency(coupon.discount) }}
             </Amount>
             <Amount>
                 <template #label>Total a pagar:</template>
