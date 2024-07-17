@@ -7,10 +7,12 @@
 </script>
 
 <template>
-    <header class="px-10 py-5 bg-gray-700 flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between absolute top-0 w-full z-10">
+    <header class="px-10 py-5 bg-gray-700 
+        flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between 
+        absolute top-0 w-full z-10">
         <div>
-            <Logo />
-            <div class="flex gap-5 text-white">
+            <Logo class="flex lg:justify-start justify-center"/>
+            <div class="flex gap-5 text-white justify-center">
                 <h2 class="text-lg font-extrabold">Filtros:</h2>
                 <div 
                     class="flex items-center gap-2"
@@ -34,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <nav class="pt-1">
+        <nav class="pt-1 flex justify-end">
             <Link
                 to="sales"
             >

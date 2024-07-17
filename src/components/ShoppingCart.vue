@@ -18,7 +18,7 @@
         El carrito esta vacio
     </p>
     <div v-else>
-        <p class="text-4xl font-bold text-gray-900">Resumen de Venta</p>
+        <p class="text-4xl font-bold text-gray-900 text-center lg:text-start">Resumen de Venta</p>
         <ul
             role="list"
             class="mt-6 divide-y divide-gray-300 border-b border-gray-300"

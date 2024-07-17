@@ -20,14 +20,14 @@
             :src="product.image"
             :alt="'Imagen de ' + product.name"
         >
-        <div class="p-3 space-y-2">
+        <div class="p-2 lg:p-3 lg:space-y-2">
             <h3 class="text-xl font-black text-gray-500">{{ product.name }}</h3>
             <p class="text-gray-500 font-bold">Stock: {{ product.availability }}</p>
             <p class="text-gray-900 text-xl font-extrabold">{{ formatCurrency(product.price) }}</p>
         </div>
         <button
             type="button"
-            class="absolute top-5 right-5"
+            class="absolute top-2 right-2 lg:top-5 lg:right-5"
             @click="cart.addItem(product)"
         >
             <PlusButton />
