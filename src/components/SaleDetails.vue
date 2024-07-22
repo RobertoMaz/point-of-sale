@@ -10,8 +10,8 @@
 </script>
 
 <template>
-    <div class="border-t border-gray-300 space-y-6 py-6">
-        <h2 class="text-2xl font-black text-center">Detalle Venta:</h2>
+    <div class="border-t border-gray-300 space-y-1 lg:space-y-6 py-4 lg:py-6">
+        <h2 class="text-2xl font-black text-start lg:text-center">Detalle Venta:</h2>
         <p class="text-xl font-black text-gray-500">Productos vendidos</p>
         <ul
             role="list"
@@ -33,7 +33,7 @@
                 </div>
             </li>
         </ul>
-        <dl class="space-y-6 border-b border-gray-300 py-6 text-sm font-medium text-gray-500">
+        <dl class="space-y-1 lg:space-y-6 border-b border-gray-300 pb-2 lg:py-6 text-sm font-medium text-gray-500">
             <Amount>
                 <template #label>Subtotal:</template>
                 {{ formatCurrency(sale.subtotal) }}

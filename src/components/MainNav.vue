@@ -7,7 +7,7 @@
 </script>
 
 <template>
-    <header class="px-10 py-5 bg-gray-700 
+    <header class="px-5 lg:px-10 pt-5 pb-4 bg-gray-700 
         flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-between 
         absolute top-0 w-full z-10">
         <div>

@@ -31,13 +31,13 @@
 </script>
 
 <template>
-    <div>
+    <div class="p-2 pt-10 lg:p-0">
         <Link to="products">
             Volver
         </Link>
         <h1 class="text-4xl font-black my-5">Nuevo Producto</h1>
         <div class="flex justify-center bg-white shadow">
-            <div class="mt-10 p-10 w-full 2xl:w-2/4">
+            <div class="mt-2 lg:mt-10 p-2 lg:p-10 w-full 2xl:w-2/4">
                 <FormKit 
                     type="form"
                     submit-label="Agregar Producto"
@@ -48,7 +48,7 @@
                         type="text"
                         label="Nombre"
                         name="name"
-                        placeholder="Nombre de Producto*"
+                        placeholder="Nombre de Producto *"
                         validation="required"
                         :validation-messages="{required: 'El Nombre del Producto es Obligatorio'}"
                         v-model.trim="formData.name"
@@ -84,7 +84,7 @@
                         type="number"
                         label="Precio"
                         name="price"
-                        placeholder="Precio de Producto"
+                        placeholder="Precio de Producto *"
                         validation="required"
                         :validation-messages="{required: 'El precio es obligatoria'}"
                         min='1'
@@ -95,7 +95,7 @@
                         type="number"
                         label="Disponibles"
                         name="availability"
-                        placeholder="Productos Disponibles"
+                        placeholder="Productos Disponibles *"
                         validation="required"
                         :validation-messages="{required: 'La cantidad disponible es obligatoria'}"
                         step="1"

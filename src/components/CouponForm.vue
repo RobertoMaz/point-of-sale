@@ -5,7 +5,6 @@
 </script>
 
 <template>
-    <!-- border-t border-gray-300 -->
     <p class="mt-5 py-5 font-bold">¿Tienes un cupón de descuento?</p>
     <div class="flex">
         <input 

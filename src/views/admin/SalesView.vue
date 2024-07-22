@@ -13,9 +13,10 @@
 </script>
 
 <template>
-    <h1 class="text-4xl font-black my-5">Resumen de Ventas</h1>
+    <h1 class="pt-4 my-5 lg:my-0 lg:mb-4 lg:pt-0 text-3xl text-center lg:text-start lg:text-4xl font-black">Resumen de Ventas</h1>
     <div class="md:flex md:items-start gap-5">
-        <div class="md:w-1/2 lg:w-\1/3 bg-white flex justify-center p-5">
+        <div class="md:w-1/2 lg:w-\1/3 bg-white flex flex-col justify-center p-5">
+            <p class="pl-1 text-sm">selecciona una fecha *</p>
             <VueTailwindDatePicker 
                 i18n="es-mx"
                 as-single

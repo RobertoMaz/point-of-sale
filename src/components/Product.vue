@@ -19,7 +19,7 @@
 <template>
     <li 
         :class="{'opacity-30': isProductNotAvailable}"
-        class="flex items-center space-x-6 border border-gray-200 p-6 bg-white shadow"
+        class="flex items-center lg:space-x-6 border border-gray-200 p-2 lg:p-6 bg-white shadow"
     >
         <img
             :src="product.image"

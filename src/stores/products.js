@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import { computed, ref } from "vue"
 import { useFirestore, useCollection, useFirebaseStorage } from "vuefire"
-import { collection, addDoc, where, query, limit, orderBy, updateDoc, doc, getDoc, deleteDoc } from "firebase/firestore"
+import { collection, addDoc, query, updateDoc, doc, getDoc, deleteDoc } from "firebase/firestore"
 import { ref as storageRef, deleteObject } from "firebase/storage"
 
 export const useProductsStore = defineStore('products', () => {
@@ -56,7 +56,7 @@ export const useProductsStore = defineStore('products', () => {
 
     const categoryOptions = computed(() => {
         const options = [
-            {label: 'Seleccione', value: '', attrs: {disabled: true}},
+            {label: 'Seleccione *', value: '', attrs: {disabled: true}},
             ...categories.map(category => ({label: category.name, value: category.id}))
         ]
         return options
